@@ -2,12 +2,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Text } from 'react-native';
 import { Icon } from '../components/elements';
 import theme from '../utils/theme';
 import Splash from './Splash';
-// import Login from './Login';
+import Login from './Login';
 import Dashboard from './Dashboard';
+import Account from './Account';
 // import Account from './Account';
 // import Test from './Test';
 
@@ -25,7 +25,7 @@ function LoginStackScreen() {
     <LoginStack.Navigator>
       <LoginStack.Screen
         name="Login"
-        component={Dashboard}
+        component={Login}
         options={{ headerShown: false }}
       />
     </LoginStack.Navigator>
@@ -51,7 +51,7 @@ function ProfileStackScreen() {
     <ProfileStack.Navigator>
       <ProfileStack.Screen
         name="Profile"
-        component={Dashboard}
+        component={Account}
         // options={{ headerShown: false }}
       />
     </ProfileStack.Navigator>
@@ -94,7 +94,7 @@ const ScreensStack = createNativeStackNavigator();
 function ScreensStackMain({ isLoggedIn }) {
   // console.log('app', isLoggedIn);
   let app = MainStackScreen;
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
     app = LoginStackScreen;
   }
 
