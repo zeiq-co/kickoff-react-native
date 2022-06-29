@@ -94,7 +94,7 @@ const ScreensStack = createNativeStackNavigator();
 function ScreensStackMain({ isLoggedIn }) {
   // console.log('app', isLoggedIn);
   let app = MainStackScreen;
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     app = LoginStackScreen;
   }
 
