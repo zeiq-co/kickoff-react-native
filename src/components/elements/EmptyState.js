@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { View } from 'react-native';
-import Text from './Text';
-import Icon from './Icon';
+import { Text, Icon } from '../atoms';
 
 const EmptyState = ({ icon, title, details }) => (
   <View className="flex-1 justify-center  items-center">

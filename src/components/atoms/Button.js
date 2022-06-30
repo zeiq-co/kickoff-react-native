@@ -7,14 +7,14 @@ const MyButton = ({
   disabled,
   isLoading,
   // secondary,
-  small,
+  isSmall,
   fullWidth,
 }) => {
-  const classNames = ['bg-primary', 'rounded-lg', 'px-4', 'py-4'];
+  const classNames = ['bg-primary', 'rounded-lg', 'px-6', 'py-4', 'shadow-lg'];
 
   // if (secondary) classNames.push('font-bold');
   if (disabled || isLoading) classNames.push('opacity-70');
-  if (small) classNames.push('py-2');
+  if (isSmall) classNames.push('py-2');
   if (fullWidth) classNames.push('w-full');
 
   return (
@@ -23,7 +23,7 @@ const MyButton = ({
       disabled={disabled || isLoading}
       className={classNames.join(' ')}
     >
-      <Text textLite semiBold size="medium" className="text-center">
+      <Text textLite bold size="medium" className="text-center">
         {isLoading ? 'Loading...' : children}
       </Text>
     </TouchableOpacity>

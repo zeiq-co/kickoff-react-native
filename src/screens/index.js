@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Icon } from '../components/elements';
+import { Icon } from '../components/atoms';
 import theme from '../utils/theme';
 import Splash from './Splash';
 import Login from './Login';
@@ -60,8 +60,8 @@ function ProfileStackScreen() {
 
 const MainStack = createBottomTabNavigator();
 const screenOptions = {
-  tabBarActiveTintColor: theme.textColor,
-  tabBarInactiveTintColor: theme.textColorLite,
+  tabBarActiveTintColor: theme.secondaryColor,
+  tabBarInactiveTintColor: theme.backgroundColor,
   presentation: 'modal',
   headerShown: false,
   tabBarStyle: {
@@ -95,7 +95,8 @@ function ScreensStackMain({ isLoggedIn }) {
   // console.log('app', isLoggedIn);
   let app = MainStackScreen;
   if (!isLoggedIn) {
-    app = LoginStackScreen;
+    // app = LoginStackScreen;
+    app = MainStackScreen;
   }
 
   return (

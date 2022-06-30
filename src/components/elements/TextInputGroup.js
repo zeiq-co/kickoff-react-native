@@ -1,24 +1,23 @@
 import PropTypes from 'prop-types';
 import { View, TextInput } from 'react-native';
-
-import Text from './Text';
+import { Text } from '../atoms';
 
 const TextInputGroup = ({ label, error, isLoading, width, ...props }) => (
-  <View>
+  <View className="mb-3">
     {label && (
       <Text semiBold size="medium">
         {label}
       </Text>
     )}
     <TextInput
-      className="border-b border-light px-4 text-lg h-16"
+      className="border-b border-light px-3 text-base h-16"
       underlineColorAndroid="transparent"
       placeholderTextColor={'#9EA1A7'}
       editable={!isLoading}
       {...props}
     />
     {error && (
-      <Text className="text-danger mt-2 italic" size="extraSmall">
+      <Text className="text-danger italic mt-2" size="extraSmall">
         {error}
       </Text>
     )}

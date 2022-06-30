@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { ScrollView, Modal, TouchableOpacity, View } from 'react-native';
-import Text from './Text';
+import { Text } from '../atoms';
 
 const MyModal = ({
   onRequestClose,

@@ -1,16 +1,18 @@
-import { View } from 'react-native';
+import { View, KeyboardAvoidingView, Platform } from 'react-native';
 import Layout from '../components/global/Layout';
-import { Button, Text, TextInputGroup } from '../components/elements';
 
-const Login = () => (
+import LoginEmailForm from '../components/forms/LoginEmailForm';
+
+const Login = ({ navigation }) => (
   <Layout>
-    <View className="flex-1 ">
-      <Text bold size="medium">
-        This is Login page
-      </Text>
-      <Button fullWidth>Button</Button>
-      <TextInputGroup placeholder="Email address" />
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      className="flex-1"
+    >
+      <View className="flex-1 px-5">
+        <LoginEmailForm handleSubmit={() => navigation.navigate('Dashboard')} />
+      </View>
+    </KeyboardAvoidingView>
   </Layout>
 );
 export default Login;
