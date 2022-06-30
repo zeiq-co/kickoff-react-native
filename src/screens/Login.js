@@ -1,12 +1,15 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Layout from '../components/global/Layout';
-import { Button } from '../components/elements';
+import { Button, Text, TextInputGroup } from '../components/elements';
 
 const Login = () => (
   <Layout>
-    <View className="flex-1 items-center justify-center">
-      <Text className="font-bold">This is Login page</Text>
+    <View className="flex-1 ">
+      <Text bold size="medium">
+        This is Login page
+      </Text>
       <Button fullWidth>Button</Button>
+      <TextInputGroup placeholder="Email address" />
     </View>
   </Layout>
 );

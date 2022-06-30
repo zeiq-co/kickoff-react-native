@@ -1,9 +1,9 @@
 // import { Platform } from 'react-native';
 
 const theme = {
-  brandColor: '#312b46',
-  primaryColor: '#663ff5',
-  secondaryColor: '#663ff5',
+  brandColor: '#4add82',
+  primaryColor: '#4add82',
+  secondaryColor: '#181725',
   borderColor: '#d8d8d9',
   backgroundColor: '#FFFFFF',
   textColor: '#1e0f2f',

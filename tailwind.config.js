@@ -10,9 +10,8 @@ module.exports = {
   theme: {
     backgroundColor: (theme) => ({
       ...theme('colors'),
-      primary: '#1e0f2f',
-      secondary: '#663ff5',
-      tertiary: '#312b46',
+      primary: '#4add82',
+      secondary: '#181725',
     }),
     borderColor: (theme) => ({
       ...theme('colors'),
@@ -20,10 +19,10 @@ module.exports = {
     }),
     textColor: (theme) => ({
       ...theme('colors'),
-      primary: '#1e0f2f',
+      primary: '#292627',
       secondary: '#232323',
       grayLight: '#858585',
-      textDanger: '#DB314B',
+      danger: '#DB314B',
     }),
     extend: {},
   },
