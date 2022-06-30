@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+// import { Platform } from 'react-native';
 
 const theme = {
   brandColor: '#312b46',
@@ -16,22 +16,6 @@ const theme = {
   fontSizeMedium: 18,
   fontSizeLarge: 28,
   fontSizeExtraLarge: 32,
-  shadowColor: '#DEDEDE',
-  shadowOffset: { width: 1, height: 2 },
-  shadowOpacity: 0.25,
-  shadowRadius: 1,
 };
 
 export default theme;
-
-export const boxShadow = Platform.select({
-  ios: {
-    shadowColor: theme.shadowColor,
-    shadowOffset: theme.shadowOffset,
-    shadowOpacity: theme.shadowOpacity,
-    shadowRadius: theme.shadowRadius,
-  },
-  android: {
-    elevation: 2,
-  },
-});
