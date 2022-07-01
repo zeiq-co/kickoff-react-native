@@ -5,8 +5,8 @@ const List = ({ data, renderItem, loading, onRefresh }) => (
     <FlatList
       data={data}
       renderItem={renderItem}
-      initialNumToRender={20}
-      maxToRenderPerBatch={20}
+      initialNumToRender={15}
+      maxToRenderPerBatch={15}
       onRefresh={onRefresh}
       refreshing={loading}
       keyExtractor={(item) => item.id}

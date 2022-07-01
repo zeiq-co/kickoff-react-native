@@ -1,15 +1,17 @@
 /* eslint global-require: 0 */
 import { useEffect, useState } from 'react';
-import { PersistGate } from 'zustand-persist';
+// import { PersistGate } from 'zustand-persist';
 import { ThemeProvider } from 'styled-components/native';
 import * as Font from 'expo-font';
 import { LogBox } from 'react-native';
 import { TailwindProvider } from 'tailwindcss-react-native';
+import { ApolloProvider } from '@apollo/client';
 
 import theme from './utils/theme';
 import Splash from './screens/Splash';
 import Navigation from './screens';
 import useUserStore from './store/user';
+import apolloClient from './utils/apolloClient';
 
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); // Ignore all log notifications
@@ -41,18 +43,20 @@ const AppMain = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <TailwindProvider>
-        <PersistGate
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider theme={theme}>
+        <TailwindProvider>
+          {/* <PersistGate
           loading={<Splash />}
           onBeforeLift={() => {
             console.log('onBeforeLift');
           }}
-        >
+        > */}
           {fontLoaded ? <AppInner /> : <Splash />}
-        </PersistGate>
-      </TailwindProvider>
-    </ThemeProvider>
+          {/* </PersistGate> */}
+        </TailwindProvider>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 };
 
