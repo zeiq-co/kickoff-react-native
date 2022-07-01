@@ -1,24 +1,23 @@
 /* eslint global-require: 0 */
 import { useEffect, useState } from 'react';
-// import { StoreProvider, useStoreState } from 'easy-peasy';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { PersistGate } from 'zustand-persist';
 import { ThemeProvider } from 'styled-components/native';
 import * as Font from 'expo-font';
 import { LogBox } from 'react-native';
 import { TailwindProvider } from 'tailwindcss-react-native';
 
-// import { store, persistor } from './store';
 import theme from './utils/theme';
 import Splash from './screens/Splash';
 import Navigation from './screens';
+import useUserStore from './store/user';
 
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); // Ignore all log notifications
 
 const AppInner = () => {
-  // const isLoggedIn = useStoreState((state) => state.user.isLoggedIn);
-  const isLoggedIn = false;
-  // console.log('isLoggedIn', isLoggedIn);
+  const { isLoggedIn } = useUserStore();
+  // const isLoggedIn = false;
+  console.log('isLoggedIn', isLoggedIn);
 
   return <Navigation isLoggedIn={isLoggedIn} />;
 };
@@ -43,13 +42,16 @@ const AppMain = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <PersistGate loading={<Splash />} persistor={persistor}>
-        <StoreProvider store={store}> */}
       <TailwindProvider>
-        {fontLoaded ? <AppInner /> : <Splash />}
+        <PersistGate
+          loading={<Splash />}
+          onBeforeLift={() => {
+            console.log('onBeforeLift');
+          }}
+        >
+          {fontLoaded ? <AppInner /> : <Splash />}
+        </PersistGate>
       </TailwindProvider>
-      {/* </StoreProvider>
-      </PersistGate> */}
     </ThemeProvider>
   );
 };

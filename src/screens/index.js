@@ -92,11 +92,9 @@ function MainStackScreen() {
 
 const ScreensStack = createNativeStackNavigator();
 function ScreensStackMain({ isLoggedIn }) {
-  // console.log('app', isLoggedIn);
   let app = MainStackScreen;
   if (!isLoggedIn) {
-    // app = LoginStackScreen;
-    app = MainStackScreen;
+    app = LoginStackScreen;
   }
 
   return (
