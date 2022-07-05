@@ -13,7 +13,6 @@ const LoginEmailForm = (props) => {
     handleBlur,
     errors,
   } = props;
-
   return (
     <View className="flex-1 justify-center">
       <Text semiBold>Enter email address to proceed</Text>

@@ -60,12 +60,12 @@ function ProfileStackScreen() {
 
 const MainStack = createBottomTabNavigator();
 const screenOptions = {
-  tabBarActiveTintColor: theme.secondaryColor,
-  tabBarInactiveTintColor: theme.backgroundColor,
+  tabBarActiveTintColor: theme.brandColor,
+  tabBarInactiveTintColor: theme.textColorLite,
   presentation: 'modal',
   headerShown: false,
   tabBarStyle: {
-    backgroundColor: theme.primaryColor,
+    backgroundColor: theme.backgroundColor,
     boxShadow: 'none',
     borderTop: 0,
     paddingBottom: 6,

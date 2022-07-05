@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
 import { useEffect } from 'react';
 import { Loading, Text } from '../components/atoms';
@@ -20,12 +20,12 @@ const Dashboard = () => {
   const { loading, error, data, refetch } = useQuery(allEventsQuery, {
     fetchPolicy: 'cache-and-network',
   });
-  console.log('data', data);
-  console.log('loading', loading);
+  // console.log('data', data);
+  // console.log('loading', loading);
 
   useEffect(() => {
     if (error) {
-      console.log(error);
+      Alert.alert('Error!', error.message);
     }
   }, [error]);
   const events = data?.allEvents || [];
