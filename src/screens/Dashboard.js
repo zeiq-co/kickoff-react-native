@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 import { useEffect } from 'react';
 import { Loading, Text } from '../components/atoms';
 import Layout from '../components/global/Layout';
-import { FlatList } from '../components/elements';
+import { EmptyState, FlatList } from '../components/elements';
 import Image from '../components/elements/Image';
 
 const allEventsQuery = gql`
@@ -32,6 +32,7 @@ const Dashboard = () => {
   return (
     <Layout>
       {loading && events.length === 0 && <Loading />}
+      {!loading && events.length === 0 && <EmptyState />}
       <View className="pt-5">
         <FlatList
           data={events}
